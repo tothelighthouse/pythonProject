@@ -1,5 +1,7 @@
+# coding=utf-8
+import collections
 
-슈도 코드
+# 슈도 코드
 # BellmanFord(G,w,s):
 # //초기화 과정
 # for each u in G.V:     //노드를 초기화 하기
@@ -18,13 +20,18 @@
 #      if distance[u] + w[(u,v)] < distance[v]:
 #           return false //음수 사이클을 확인하고 알고리즘을 정지
 # return distance[], parent[]
-실제 구현
+# 실제 구현
 # ...
+import inputs as inputs
+
 graph = collections.defaultdict(list)
 
 for u, v, w in inputs:  # 양방향 그래프라고 가정
     graph[u].append([v, w])
     graph[v].append([u, w])
+
+INF = 3000
+V = 2000
 
 
 def bellman_ford(s):
@@ -40,3 +47,23 @@ def bellman_ford(s):
             if dist[v] > dist[u] + c:
                 return False
     return dist
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
